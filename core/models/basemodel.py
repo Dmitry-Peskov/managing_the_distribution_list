@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncAttrs
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, declared_attr
 
 
-class BaseModel(AsyncAttrs, DeclarativeBase):
+class BaseModel(DeclarativeBase, AsyncAttrs):
     __abstract__ = True
 
     @declared_attr.directive

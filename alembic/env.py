@@ -12,9 +12,9 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-from core.models.base import BaseModel
+from core.models import BaseModel
 
-target_metadata = BaseModel
+target_metadata = BaseModel.metadata
 
 from core.config import settings_db
 

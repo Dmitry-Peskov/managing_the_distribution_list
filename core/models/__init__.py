@@ -3,5 +3,5 @@ __all__ = (
     "User"
 )
 
-from .base import BaseModel
+from .basemodel import BaseModel
 from .user import User
