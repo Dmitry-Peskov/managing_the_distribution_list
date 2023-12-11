@@ -7,18 +7,18 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
 
-
 config = context.config
-
 
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-
 from core.models.base import BaseModel
+
 target_metadata = BaseModel
-# TODO не забыть импортировать сюда строку подключения и передать её в set_main_option
-config.set_main_option("sqlalchemy.url", 'DB.DSN')
+
+from core.config import settings_db
+
+config.set_main_option("sqlalchemy.url", settings_db.url)
 
 
 def run_migrations_offline() -> None:
