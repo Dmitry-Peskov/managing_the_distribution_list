@@ -10,4 +10,7 @@ class BaseModel(AsyncAttrs, DeclarativeBase):
     def __tablename__(cls) -> str:
         return f"{cls.__name__.title()}Base"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(
+        BigInteger,
+        primary_key=True,
+        autoincrement=True)
