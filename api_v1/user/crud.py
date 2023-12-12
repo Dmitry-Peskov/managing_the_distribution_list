@@ -9,7 +9,7 @@ from .schemas import UserCREATE
 async def get_users(session: AsyncSession) -> list[User]:
     stmt = select(User).order_by(User.isEnabled.desc(), User.fullname.asc())
     answer: Result = await session.execute(stmt)
-    users = answer.scalar()
+    users = answer.scalars().all()
     return list(users)
 
 
