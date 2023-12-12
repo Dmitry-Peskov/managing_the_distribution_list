@@ -1,4 +1,4 @@
-from sqlalchemy import BigInteger
+from sqlalchemy import Integer
 from sqlalchemy.ext.asyncio import AsyncAttrs
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, declared_attr
 
@@ -11,6 +11,9 @@ class BaseModel(DeclarativeBase, AsyncAttrs):
         return f"{cls.__name__.title()}Base"
 
     id: Mapped[int] = mapped_column(
-        BigInteger,
+        Integer,
         primary_key=True,
-        autoincrement=True)
+        autoincrement="auto",
+        index=True,
+        unique=True
+    )

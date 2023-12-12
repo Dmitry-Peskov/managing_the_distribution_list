@@ -7,4 +7,9 @@ class SettingsDB(BaseSettings):
     echo: bool = True
 
 
+class SettingsAPI(BaseSettings):
+    api_v1_prefix: str = "/api/v1"
+
+
 settings_db = SettingsDB()
+settings_api = SettingsAPI()
